@@ -113,43 +113,6 @@ Chest-X-Ray-Classifier/
 
 ## ⚙️ Configuration
 
-Edit `config.yaml` to customize:
-- Model hyperparameters (learning rate, batch size, etc.)
-- Federated learning settings (clients, rounds)
-- Data augmentation parameters
-- Training device (GPU/CPU)
-
-## 🔬 Current Progress
-
-### ✅ Completed
-- [x] Project setup and dependencies
-- [x] Data download infrastructure
-- [x] Data preparation module (filtering, splitting)
-- [x] PyTorch Dataset implementation with augmentations
-- [x] Vision Transformer architecture
-- [x] LSTM classifier with attention mechanism
-- [x] Model verification tests
-
-### 🚧 In Progress
-- [ ] Training utilities (train_one_epoch, evaluate_model)
-- [ ] Federated learning implementation (FedAvg)
-- [ ] Evaluation and visualization tools
-- [ ] Main execution pipeline
-- [ ] Streamlit interactive demo
-
-## 📈 Expected Performance
-
-Based on similar implementations with NIH ChestX-ray8:
-- **Target Accuracy**: >75%
-- **Target F1-Score**: >0.70
-- **Training Time** (ViT, single client): ~45 min on NVIDIA RTX 4090
-- **Federated Training**: ~2-3 hours for 5 rounds
-
-## 🎓 Use Cases
-
-- **Medical AI Research**: Federated learning for privacy-preserving medical imaging
-- **Computer Vision**: Transformer and LSTM applications in image classification
-- **Portfolio Project**: Demonstrates end-to-end ML system design and deployment
 
 ## 📝 License
 
