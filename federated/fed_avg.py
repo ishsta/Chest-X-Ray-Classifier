@@ -248,7 +248,12 @@ def train_federated(
         'val_f1': []
     }
     
-    criterion = nn.CrossEntropyLoss()
+    # Calculate class weights to handle imbalance
+    # Class distribution: 60% Normal (0), 40% Abnormal (1)
+    # Use inverse frequency as weights
+    class_weights = torch.tensor([1.0/0.6, 1.0/0.4]).to(device)  # [1.667, 2.5]
+    criterion = nn.CrossEntropyLoss(weight=class_weights)
+    print(f"\n⚖️  Using weighted loss - Class weights: Normal={class_weights[0]:.3f}, Abnormal={class_weights[1]:.3f}")
     
     # Global model to device
     global_model = global_model.to(device)

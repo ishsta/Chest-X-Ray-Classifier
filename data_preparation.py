@@ -66,6 +66,9 @@ def load_and_filter_data(csv_path, images_dir, save_filtered=True):
     print(f"\n🏷️  Creating binary labels...")
     df_filtered['Binary_Label'] = (df_filtered['Finding Labels'] != 'No Finding').astype(int)
     
+    # Reset index to ensure sequential 0-based indexing for splits
+    df_filtered = df_filtered.reset_index(drop=True)
+    
     label_counts = df_filtered['Binary_Label'].value_counts()
     print(f"   Normal (0): {label_counts.get(0, 0):,} ({(label_counts.get(0, 0)/len(df_filtered)*100):.1f}%)")
     print(f"   Abnormal (1): {label_counts.get(1, 0):,} ({(label_counts.get(1, 0)/len(df_filtered)*100):.1f}%)")

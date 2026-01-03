@@ -3,7 +3,7 @@
 # Data paths
 data:
   root_dir: "data"
-  images_dir: "data/images_002"
+  images_dir: "data/images"
   csv_file: "data/Data_Entry_2017.csv"
   filtered_csv: "data/filtered_data.csv"
   split_file: "data/splits.pkl"
@@ -56,8 +56,8 @@ training:
 # Federated Learning configuration
 federated:
   num_clients: 3
-  num_rounds: 5
-  local_epochs: 2
+  num_rounds: 15
+  local_epochs: 3
   allocation: "balanced"  # Options: "balanced", "random", "iid"
 
 # Augmentation
