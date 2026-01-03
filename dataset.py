@@ -257,7 +257,7 @@ def main():
     
     # Try to load a sample
     csv_path = "data/filtered_data.csv"
-    images_dir = "data/images_002"
+    images_dir = "data/images"
     
     if Path(csv_path).exists():
         df = pd.read_csv(csv_path)

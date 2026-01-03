@@ -231,7 +231,7 @@ def main():
     """Demo/test function."""
     # Example usage
     csv_path = "data/Data_Entry_2017.csv"
-    images_dir = "data/images_002"
+    images_dir = "data/images"
     
     # Load and filter
     df = load_and_filter_data(csv_path, images_dir)
