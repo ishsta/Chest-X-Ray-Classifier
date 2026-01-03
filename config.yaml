@@ -1,0 +1,92 @@
+# Chest X-Ray Classifier Configuration
+
+# Data paths
+data:
+  root_dir: "data"
+  images_dir: "data/images_002"
+  csv_file: "data/Data_Entry_2017.csv"
+  filtered_csv: "data/filtered_data.csv"
+  split_file: "data/splits.pkl"
+
+# Kaggle dataset
+kaggle:
+  dataset: "nih-chest-xrays/data"
+  files:
+    - "images_002.zip"
+    - "Data_Entry_2017.csv"
+
+# Model configuration
+model:
+  type: "vit"  # Options: "vit", "lstm", "resnet"
+  image_size: 224
+  patch_size: 16
+  num_classes: 2
+  
+  # ViT specific
+  vit:
+    embed_dim: 768
+    num_heads: 12
+    num_layers: 6
+    mlp_ratio: 4
+    dropout: 0.1
+  
+  # LSTM specific
+  lstm:
+    hidden_dim: 256
+    num_layers: 2
+    bidirectional: true
+    dropout: 0.3
+
+# Training configuration
+training:
+  batch_size: 32
+  num_epochs: 10
+  learning_rate: 0.0001
+  weight_decay: 0.01
+  device: "cuda"  # Options: "cuda", "cpu", "auto"
+  seed: 42
+  num_workers: 4
+  
+  # Data split ratios
+  split_ratios:
+    train: 0.70
+    val: 0.15
+    test: 0.15
+
+# Federated Learning configuration
+federated:
+  num_clients: 3
+  num_rounds: 5
+  local_epochs: 2
+  allocation: "balanced"  # Options: "balanced", "random", "iid"
+
+# Augmentation
+augmentation:
+  train:
+    random_horizontal_flip: 0.5
+    random_rotation: 10
+    random_affine: true
+  
+  normalization:
+    mean: [0.485, 0.456, 0.406]  # ImageNet stats
+    std: [0.229, 0.224, 0.225]
+
+# Evaluation
+evaluation:
+  save_predictions: true
+  save_confusion_matrix: true
+  save_misclassified: true
+  num_visualize: 20
+
+# Deployment
+deployment:
+  model_save_path: "models/saved_models"
+  checkpoint_dir: "checkpoints"
+  results_dir: "results"
+  logs_dir: "logs"
+  
+  # Streamlit demo
+  demo:
+    title: "Chest X-Ray Abnormality Classifier"
+    description: "AI-powered binary classification: Normal vs Abnormal"
+    max_upload_size_mb: 10

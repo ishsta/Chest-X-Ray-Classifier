@@ -1,0 +1,63 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Virtual Environment
+venv/
+ENV/
+env/
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# PyCharm
+.idea/
+
+# VS Code
+.vscode/
+
+# Data files
+data/
+*.csv
+*.zip
+*.tar.gz
+images_*/
+
+# Model checkpoints
+checkpoints/
+*.pth
+*.pt
+models/saved_models/
+
+# Results
+results/
+logs/
+*.log
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Kaggle
+.kaggle/
+
+# Streamlit
+.streamlit/secrets.toml
