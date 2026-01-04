@@ -39,10 +39,10 @@ Train using 3 distributed clients with FedAvg:
 
 ```bash
 # Using Vision Transformer
-python main.py --federated --model vit --num_clients 3 --rounds 5
+python train.py --federated --model vit --num_clients 3 --rounds 5
 
 # Using LSTM classifier
-python main.py --federated --model lstm --num_clients 3 --rounds 5
+python train.py --federated --model lstm --num_clients 3 --rounds 5
 ```
 
 **Training Time Estimates:**
@@ -58,7 +58,7 @@ python main.py --federated --model lstm --num_clients 3 --rounds 5
 For quick testing (1 round, 2 clients):
 
 ```bash
-python main.py --federated --model vit --num_clients 2 --rounds 1
+python train.py --federated --model vit --num_clients 2 --rounds 1
 ```
 
 ### Training Outputs
@@ -89,7 +89,7 @@ Evaluation automatically runs after training. To evaluate a specific checkpoint:
 
 ```python
 # Coming soon: standalone evaluation mode
-python main.py --eval_only --checkpoint checkpoints/federated_round_5.pth
+python train.py --eval_only --checkpoint checkpoints/federated_round_5.pth
 ```
 
 ## Interactive Demo
@@ -145,7 +145,7 @@ model:
 ### Training Arguments
 
 ```bash
-python main.py [OPTIONS]
+python train.py [OPTIONS]
 
 Options:
   --federated              Use federated learning
@@ -161,13 +161,13 @@ Options:
 
 ```bash
 # Federated ViT with 4 clients, 10 rounds
-python main.py --federated --model vit --num_clients 4 --rounds 10
+python train.py --federated --model vit --num_clients 4 --rounds 10
 
 # Federated LSTM with custom config
-python main.py --federated --model lstm --config my_config.yaml
+python train.py --federated --model lstm --config my_config.yaml
 
 # Quick test (1 round)
-python main.py --federated --model vit --rounds 1
+python train.py --federated --model vit --rounds 1
 ```
 
 ## Deployment
@@ -176,7 +176,7 @@ python main.py --federated --model vit --rounds 1
 
 1. **Train the Model**:
    ```bash
-   python main.py --federated --model vit --rounds 5
+   python train.py --federated --model vit --rounds 5
    ```
 
 2. **Test the Demo**:

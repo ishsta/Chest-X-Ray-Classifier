@@ -67,21 +67,21 @@ See [DATA_DOWNLOAD.md](DATA_DOWNLOAD.md) for detailed instructions.
 ### 3. Data Preparation
 
 ```bash
-# Filter annotations and create train/val/test splits
-python data_preparation.py
+# Prepare data: filter CSV and create stratified splits
+python data.py
 ```
 
-### 4. Training (Coming Soon)
+### 4. Training
 
 ```bash
 # Train with ViT model using federated learning
-python main.py --model vit --federated --num_clients 3 --rounds 5
+python train.py --model vit --federated --num_clients 3 --rounds 5
 
 # Train with LSTM model
-python main.py --model lstm --federated --num_clients 3 --rounds 5
+python train.py --model lstm --federated --num_clients 3 --rounds 5
 ```
 
-### 5. Launch Demo (Coming Soon)
+### 5. Launch Demo
 
 ```bash
 streamlit run app.py
@@ -89,30 +89,27 @@ streamlit run app.py
 
 ## 📁 Project Structure
 
+**Consolidated for Simplicity** (4 core files):
+
 ```
 Chest-X-Ray-Classifier/
 ├── data/                      # Dataset directory (not tracked)
-│   ├── Data_Entry_2017.csv   # Annotations
+│   ├── Data_Entry_2017.csv   # Annotations  
 │   ├── filtered_data.csv     # Filtered subset
-│   └── images_002/           # Image files
-├── models/                    # Model architectures
-│   ├── vit.py               # Vision Transformer
-│   ├── lstm_classifier.py   # LSTM models
-│   └── __init__.py
-├── federated/                 # Federated learning (coming soon)
-├── data_preparation.py        # Data loading & splitting
-├── dataset.py                # PyTorch Dataset class
-├── train.py                  # Training utilities (coming soon)
-├── evaluate.py               # Evaluation & visualization (coming soon)
-├── main.py                   # Main execution script (coming soon)
-├── app.py                    # Streamlit demo (coming soon)
-├── config.yaml               # Configuration file
-├── requirements.txt          # Dependencies
-└── README.md                 # This file
+│   ├── splits.pkl            # Train/val/test indices
+│   └── images/               # Image files
+├── model.py                   # All model architectures (ViT + LSTM)
+├── data.py                    # Data prep + Dataset + DataLoaders
+├── train.py                   # Complete training pipeline + FedAvg + evaluation
+├── app.py                     # Streamlit demo app
+├── config.yaml                # Configuration file
+├── requirements.txt           # Dependencies
+└── README.md                  # This file
 ```
 
 ## ⚙️ Configuration
 
+Edit `config.yaml` to customize training parameters, model architecture, and federated learning settings.
 
 ## 📝 License
 
